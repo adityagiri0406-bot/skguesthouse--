@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SK Guest House</title>
+
+<style>
+body {
+  margin:0;
+  font-family:Arial;
+  background:#f5f5f5;
+}
+
+/* HEADER */
+header {
+  height:90vh;
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+  url('adityaa/img1.jpeg') center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  text-align:center;
+  transition: background 1s ease-in-out;
+}
+
+header h1 {
+  font-size:40px;
+  background:rgba(0,0,0,0.5);
+  padding:20px;
+  border-radius:10px;
+  animation: fadeIn 2s ease;
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+  from {opacity:0; transform:translateY(20px);}
+  to {opacity:1; transform:translateY(0);}
+}
+
+/* SECTION */
+.section {
+  padding:40px;
+  text-align:center;
+}
+
+/* BUTTON */
+.btn {
+  background:#ff5722;
+  color:#fff;
+  padding:10px 20px;
+  border-radius:5px;
+  text-decoration:none;
+  display:inline-block;
+  margin-top:10px;
+}
+
+/* GALLERY */
+.gallery {
+    padding: 50px;
+    text-align: center;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.08);
+}
+
+/* LIGHTBOX */
+.lightbox {
+  display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.9);
+  justify-content:center;
+  align-items:center;
+}
+
+.lightbox img {
+  max-width:90%;
+  max-height:90%;
+}
+
+/* MAP */
+iframe {
+  border-radius:10px;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+<h1>🏨 S K Guest House<br>स के गेस्ट हाउस</h1>
+</header>
+
+<!-- INFO -->
+<section class="section">
+<h2>⭐ 4.9 Rating (12 Reviews)</h2>
+<p>Affordable luxury stay with excellent hospitality, clean rooms, and delicious food.</p>
+<a class="btn" href="https://wa.me/917727078078" target="_blank">📲 Book Now on WhatsApp</a>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery">
+<h2>🖼️ Our Gallery</h2>
+
+<div class="gallery-grid">
+
+<img src="adityaa/img1.jpeg" onclick="openImg(this)">
+<img src="adityaa/img2.jpeg" onclick="openImg(this)">
+
+<img src="adityaa/img3.jpeg" onclick="openImg(this)">
+<img src="adityaa/img4.jpeg" onclick="openImg(this)">
+<img src="adityaa/img5.jpeg" onclick="openImg(this)">
+<img src="adityaa/img6.jpeg" onclick="openImg(this)">
+<img src="adityaa/img7.jpeg" onclick="openImg(this)">
+<img src="adityaa/img8.jpeg" onclick="openImg(this)">
+<img src="adityaa/img9.jpeg" onclick="openImg(this)">
+<img src="adityaa/img10.jpeg" onclick="openImg(this)">
+<img src="adityaa/img11.jpeg" onclick="openImg(this)">
+<img src="adityaa/img12.jpeg" onclick="openImg(this)">
+
+<img src="adityaa/img13.jpeg" onclick="openImg(this)">
+<img src="adityaa/img14.jpeg" onclick="openImg(this)">
+
+
+</div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeImg()">
+<img id="lightbox-img">
+</div>
+
+<!-- LOCATION -->
+<section class="section">
+<h2>📍 Location</h2>
+<iframe src="https://www.google.com/maps?q=Manipal%20University%20Rd%20Dahmi%20Kalan%20Jaipur&output=embed" width="100%" height="300"></iframe>
+</section>
+
+<!-- BACKGROUND SLIDER -->
+<script>
+const images = [
+ "adityaa/img9.jpeg",
+ "adityaa/img2.jpeg",
+ "adityaa/img1.jpeg",
+ "adityaa/img7.jpeg",
+ "adityaa/img5.jpeg",
+ "adityaa/img10.jpeg",
+ "adityaa/img13.jpeg"
+];
+
+let i = 0;
+
+setInterval(()=>{
+ document.querySelector('header').style.backgroundImage =
+ `linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('${images[i]}')`;
+ i = (i+1)%images.length;
+},4000);
+
+/* LIGHTBOX */
+function openImg(img){
+ document.getElementById('lightbox').style.display='flex';
+ document.getElementById('lightbox-img').src=img.src;
+}
+function closeImg(){
+ document.getElementById('lightbox').style.display='none';
+}
+</script>
+
+</body>
+</html>
